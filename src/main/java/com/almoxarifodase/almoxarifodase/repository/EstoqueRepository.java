@@ -1,0 +1,10 @@
+package com.almoxarifodase.almoxarifodase.repository;
+
+import com.almoxarifodase.almoxarifodase.entities.Estoque;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EstoqueRepository extends JpaRepository<Estoque, Long> {
+
+
+    Estoque findByName(String nomeCanteiro);
+}
