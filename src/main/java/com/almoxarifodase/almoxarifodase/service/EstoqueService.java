@@ -38,28 +38,6 @@ public class EstoqueService {
         return new EstoqueDTO(estoque);
     }
 
-    @Transactional
-    public Registers addNewItem(Registers registers){
-        Estoque estoque = estoqueRepository.findByName(registers.getNomeCanteiro());
-        Item item = itemRepository.findByName(registers.getNomeItem());
-        item.setQtd(registers.getQtd() + item.getQtd());
-        estoque.getItens().add(item);
-        estoqueRepository.save(estoque);
-        return registers;
-    }
 
-    @Transactional
-    public NovaSaida withdrawal(Long estoqueId, Long itemId, Double qtd) throws Exception {
-        Estoque estoque = estoqueRepository.getOne(estoqueId);
-        Item item = itemRepository.getOne(itemId);
-        if(item.getQtd() < qtd){
-            throw new Exception();
-        }else{
-            item.setQtd(item.getQtd() - qtd);
-        }
-        estoque.getItens().add(item);
-        estoqueRepository.save(estoque);
-        return new NovaSaida(estoque.getName(), qtd, item.getName());
-    }
 
 }
