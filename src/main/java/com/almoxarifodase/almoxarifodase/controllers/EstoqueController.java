@@ -1,9 +1,6 @@
 package com.almoxarifodase.almoxarifodase.controllers;
 
 import com.almoxarifodase.almoxarifodase.DTO.EstoqueDTO;
-import com.almoxarifodase.almoxarifodase.entities.Aux;
-import com.almoxarifodase.almoxarifodase.entities.NovaEntrada;
-import com.almoxarifodase.almoxarifodase.entities.NovaSaida;
 import com.almoxarifodase.almoxarifodase.entities.Registers;
 import com.almoxarifodase.almoxarifodase.service.EstoqueService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,14 +33,4 @@ public class EstoqueController {
         return ResponseEntity.created(uri).body(dto);
     }
 
-    @PostMapping(value = "/add")
-    public ResponseEntity<Registers> addNewItem(@RequestBody Registers registers){
-        Registers r = service.addNewItem(registers);
-        return ResponseEntity.ok().body(r);
-    }
-    @PostMapping(value = "/rem")
-    public ResponseEntity<NovaSaida> removeItem(@RequestBody Aux aux) throws Exception {
-        NovaSaida novaSaida= service.withdrawal(aux.getEstoqueId(), aux.getItemId(), aux.getQtd());
-        return ResponseEntity.ok().body(novaSaida);
-    }
 }

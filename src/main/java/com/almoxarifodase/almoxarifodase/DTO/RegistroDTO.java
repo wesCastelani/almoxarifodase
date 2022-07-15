@@ -1,28 +1,24 @@
-package com.almoxarifodase.almoxarifodase.entities;
+package com.almoxarifodase.almoxarifodase.DTO;
 
-import javax.persistence.*;
+import com.almoxarifodase.almoxarifodase.entities.Registers;
+import com.almoxarifodase.almoxarifodase.entities.TipoRegistro;
 
-@Entity
-@Table(name="tb_registros")
-public class Registers {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class RegistroDTO {
     private Long id;
     private String nomeCanteiro;
     private String nomeItem;
     private Double qtd;
     private TipoRegistro tipo;
 
-    public Registers() {
+    public RegistroDTO() {
     }
 
-    public Registers(Long id, String nomeCanteiro, Double qtdDeEntrada, String nomeItem, TipoRegistro tipo) {
-        this.id = id;
-        this.nomeCanteiro = nomeCanteiro;
-        this.qtd = qtdDeEntrada;
-        this.nomeItem = nomeItem;
-        this.tipo = tipo;
+    public RegistroDTO(Registers entity) {
+        this.id = entity.getId();
+        this.nomeCanteiro = entity.getNomeCanteiro();
+        this.qtd = entity.getQtd();
+        this.nomeItem = entity.getNomeItem();
+        this.tipo = entity.getTipo();
     }
 
     public Long getId() {
