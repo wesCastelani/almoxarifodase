@@ -3,12 +3,15 @@ package com.almoxarifodase.almoxarifodase.DTO;
 import com.almoxarifodase.almoxarifodase.entities.Registers;
 import com.almoxarifodase.almoxarifodase.entities.TipoRegistro;
 
+import java.time.Instant;
+
 public class RegistroDTO {
     private Long id;
     private String nomeCanteiro;
     private String nomeItem;
     private Double qtd;
     private TipoRegistro tipo;
+    private Instant moment;
 
     public RegistroDTO() {
     }
@@ -19,6 +22,7 @@ public class RegistroDTO {
         this.qtd = entity.getQtd();
         this.nomeItem = entity.getNomeItem();
         this.tipo = entity.getTipo();
+        this.moment = entity.getMoment();
     }
 
     public Long getId() {
@@ -59,5 +63,13 @@ public class RegistroDTO {
 
     public void setTipo(TipoRegistro tipo) {
         this.tipo = tipo;
+    }
+
+    public Instant getMoment() {
+        return moment;
+    }
+
+    public void setMoment(Instant moment) {
+        this.moment = moment;
     }
 }

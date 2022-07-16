@@ -25,9 +25,9 @@ public class RegistroController {
     }
 
     @PostMapping(value = "/adicionarItem")
-    public ResponseEntity<Registers> adicionarItem(@RequestBody Registers registers){
-        Registers r = service.adicionar(registers);
-        return ResponseEntity.ok().body(r);
+    public ResponseEntity<RegistroDTO> adicionarItem(@RequestBody RegistroDTO registroDTO){
+        registroDTO = service.adicionar(registroDTO);
+        return ResponseEntity.ok().body(registroDTO);
     }
     @PostMapping(value = "/retirarItem")
     public ResponseEntity<Registers> retirarItem(@RequestBody Registers registers) throws Exception {
