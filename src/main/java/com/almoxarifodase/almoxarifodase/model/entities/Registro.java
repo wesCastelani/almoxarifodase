@@ -19,7 +19,7 @@ public class Registro {
     private String nomeItem;
     @Column(name = "qtd", nullable = false)
     private Double qtd;
-    @Column(name = "tipo_registro", nullable = false)
+    @Column(name = "tipo_registro")
     private TipoRegistro tipo;
     @Column(name = "data", nullable = false)
     private Instant moment;

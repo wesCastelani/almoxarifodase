@@ -2,7 +2,6 @@ package com.almoxarifodase.almoxarifodase.service;
 
 import com.almoxarifodase.almoxarifodase.model.DTO.EstoqueDTO;
 import com.almoxarifodase.almoxarifodase.model.DTO.ItemDTO;
-import com.almoxarifodase.almoxarifodase.entities.*;
 import com.almoxarifodase.almoxarifodase.model.entities.Estoque;
 import com.almoxarifodase.almoxarifodase.model.entities.Item;
 import com.almoxarifodase.almoxarifodase.repository.EstoqueRepository;

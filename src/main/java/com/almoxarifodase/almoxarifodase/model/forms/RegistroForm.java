@@ -4,7 +4,6 @@ import com.almoxarifodase.almoxarifodase.model.entities.TipoRegistro;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import java.time.Instant;
 

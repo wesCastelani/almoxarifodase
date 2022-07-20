@@ -12,7 +12,7 @@ public class Estoque {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name="name_canteiro", nullable = false, unique = true)
-    private String nameCanteiro;
+    private String nomeCanteiro;
 
     @ManyToMany
     @JoinTable(name = "tb_item_estoque", joinColumns = @JoinColumn(name = "estoque_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
@@ -20,9 +20,9 @@ public class Estoque {
 
     public Estoque(){}
 
-    public Estoque(Long id, String nameCanteiro) {
+    public Estoque(Long id, String nomeCanteiro) {
         this.id = id;
-        this.nameCanteiro = nameCanteiro;
+        this.nomeCanteiro = nomeCanteiro;
     }
 
     public Long getId() {
@@ -34,11 +34,11 @@ public class Estoque {
     }
 
     public String getNameCanteiro() {
-        return this.nameCanteiro;
+        return this.nomeCanteiro;
     }
 
     public void setQtd(String name) {
-        this.nameCanteiro = name;
+        this.nomeCanteiro = name;
     }
 
     public Set<Item> getItens(){return itens;}
