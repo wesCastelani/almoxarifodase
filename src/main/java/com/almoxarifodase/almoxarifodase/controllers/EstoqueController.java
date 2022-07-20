@@ -1,7 +1,6 @@
 package com.almoxarifodase.almoxarifodase.controllers;
 
-import com.almoxarifodase.almoxarifodase.DTO.EstoqueDTO;
-import com.almoxarifodase.almoxarifodase.entities.Registers;
+import com.almoxarifodase.almoxarifodase.model.DTO.EstoqueDTO;
 import com.almoxarifodase.almoxarifodase.service.EstoqueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

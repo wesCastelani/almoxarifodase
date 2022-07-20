@@ -1,4 +1,4 @@
-package com.almoxarifodase.almoxarifodase.entities;
+package com.almoxarifodase.almoxarifodase.model.entities;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -11,7 +11,8 @@ public class Estoque {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    @Column(name="name_canteiro", nullable = false, unique = true)
+    private String nameCanteiro;
 
     @ManyToMany
     @JoinTable(name = "tb_item_estoque", joinColumns = @JoinColumn(name = "estoque_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
@@ -19,9 +20,9 @@ public class Estoque {
 
     public Estoque(){}
 
-    public Estoque(Long id, String name) {
+    public Estoque(Long id, String nameCanteiro) {
         this.id = id;
-        this.name = name;
+        this.nameCanteiro = nameCanteiro;
     }
 
     public Long getId() {
@@ -32,12 +33,12 @@ public class Estoque {
         this.id = id;
     }
 
-    public String getName() {
-        return this.name;
+    public String getNameCanteiro() {
+        return this.nameCanteiro;
     }
 
     public void setQtd(String name) {
-        this.name = name;
+        this.nameCanteiro = name;
     }
 
     public Set<Item> getItens(){return itens;}

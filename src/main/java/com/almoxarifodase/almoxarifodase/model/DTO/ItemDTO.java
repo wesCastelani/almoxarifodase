@@ -1,6 +1,6 @@
-package com.almoxarifodase.almoxarifodase.DTO;
+package com.almoxarifodase.almoxarifodase.model.DTO;
 
-import com.almoxarifodase.almoxarifodase.entities.Item;
+import com.almoxarifodase.almoxarifodase.model.entities.Item;
 
 public class ItemDTO {
 

@@ -1,7 +1,7 @@
 package com.almoxarifodase.almoxarifodase.service;
 
-import com.almoxarifodase.almoxarifodase.DTO.ItemDTO;
-import com.almoxarifodase.almoxarifodase.entities.Item;
+import com.almoxarifodase.almoxarifodase.model.DTO.ItemDTO;
+import com.almoxarifodase.almoxarifodase.model.entities.Item;
 import com.almoxarifodase.almoxarifodase.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
