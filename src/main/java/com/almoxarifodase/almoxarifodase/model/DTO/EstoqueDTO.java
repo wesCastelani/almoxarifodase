@@ -1,7 +1,6 @@
-package com.almoxarifodase.almoxarifodase.DTO;
+package com.almoxarifodase.almoxarifodase.model.DTO;
 
-import com.almoxarifodase.almoxarifodase.entities.Estoque;
-import com.almoxarifodase.almoxarifodase.entities.Item;
+import com.almoxarifodase.almoxarifodase.model.entities.Estoque;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,7 @@ public class EstoqueDTO {
 
     public EstoqueDTO(Estoque entitiy) {
         this.id = entitiy.getId();
-        this.name = entitiy.getName();
+        this.name = entitiy.getNameCanteiro();
         this.itens = entitiy.getItens().stream().map(x->new ItemDTO(x)).collect(Collectors.toList());
     }
 

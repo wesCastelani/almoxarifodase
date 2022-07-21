@@ -1,7 +1,11 @@
 package com.almoxarifodase.almoxarifodase.repository;
 
-import com.almoxarifodase.almoxarifodase.entities.Registers;
+import com.almoxarifodase.almoxarifodase.model.entities.Registro;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface RegistroRepository extends JpaRepository<Registers, Long> {
+import java.util.List;
+
+public interface RegistroRepository extends JpaRepository<Registro, Long> {
+
+    List<Registro> findByNomeCanteiro(String nomeCanteiro);
 }

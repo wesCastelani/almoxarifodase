@@ -1,4 +1,4 @@
-package com.almoxarifodase.almoxarifodase.entities;
+package com.almoxarifodase.almoxarifodase.model.entities;
 
 import javax.persistence.*;
 
@@ -9,8 +9,9 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name="name", nullable = false, unique = true)
     private String name;
-
+    @Column(name="qtd")
     private Double qtd;
 
     public Item(){}

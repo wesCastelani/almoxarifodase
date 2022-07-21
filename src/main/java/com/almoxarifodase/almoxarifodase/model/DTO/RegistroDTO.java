@@ -1,7 +1,7 @@
-package com.almoxarifodase.almoxarifodase.DTO;
+package com.almoxarifodase.almoxarifodase.model.DTO;
 
-import com.almoxarifodase.almoxarifodase.entities.Registers;
-import com.almoxarifodase.almoxarifodase.entities.TipoRegistro;
+import com.almoxarifodase.almoxarifodase.model.entities.Registro;
+import com.almoxarifodase.almoxarifodase.model.entities.TipoRegistro;
 
 import java.time.Instant;
 
@@ -16,7 +16,7 @@ public class RegistroDTO {
     public RegistroDTO() {
     }
 
-    public RegistroDTO(Registers entity) {
+    public RegistroDTO(Registro entity) {
         this.id = entity.getId();
         this.nomeCanteiro = entity.getNomeCanteiro();
         this.qtd = entity.getQtd();
