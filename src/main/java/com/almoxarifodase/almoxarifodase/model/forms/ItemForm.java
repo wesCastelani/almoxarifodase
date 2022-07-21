@@ -9,5 +9,5 @@ public class ItemForm {
 
     @NotBlank(message = "Nome do item não pode estar em branco")
     private String name;
-
+    private Double qtd;
 }

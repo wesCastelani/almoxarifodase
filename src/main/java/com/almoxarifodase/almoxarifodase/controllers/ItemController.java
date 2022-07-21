@@ -1,12 +1,14 @@
 package com.almoxarifodase.almoxarifodase.controllers;
 
 import com.almoxarifodase.almoxarifodase.model.DTO.ItemDTO;
+import com.almoxarifodase.almoxarifodase.model.forms.ItemForm;
 import com.almoxarifodase.almoxarifodase.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -24,8 +26,8 @@ public class ItemController {
     }
 
     @PostMapping
-    public ResponseEntity<ItemDTO> insert(@RequestBody ItemDTO dto){
-        dto = service.insert(dto);
+    public ResponseEntity<ItemDTO> insert(@RequestBody @Valid ItemForm form){
+        ItemDTO dto = service.insert(form);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
                 .path("/{id}").buildAndExpand(dto.getId())
                 .toUri();

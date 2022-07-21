@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 @RestController
 public class RegistroController {
@@ -25,11 +26,11 @@ public class RegistroController {
 
 
     @PostMapping(value = "/adicionarItem")
-    public ResponseEntity<RegistroDTO> adicionarItem(@RequestBody RegistroForm form){
+    public ResponseEntity<RegistroDTO> adicionarItem(@RequestBody @Valid RegistroForm form){
         return ResponseEntity.ok().body(service.adicionar(form));
     }
     @PostMapping(value = "/retirarItem")
-    public ResponseEntity<RegistroDTO> retirarItem(@RequestBody RegistroForm form) {
+    public ResponseEntity<RegistroDTO> retirarItem(@RequestBody @Valid RegistroForm form) {
         try {
             return ResponseEntity.ok().body(service.retirar(form));
         } catch (Exception e) {

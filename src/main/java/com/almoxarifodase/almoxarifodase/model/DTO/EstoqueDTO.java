@@ -6,10 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 public class EstoqueDTO {
 
     private Long id;
-    private String name;
+    private String nomeCanteiro;
 
     private List<ItemDTO> itens = new ArrayList<>();
 
@@ -17,7 +18,7 @@ public class EstoqueDTO {
 
     public EstoqueDTO(Estoque entitiy) {
         this.id = entitiy.getId();
-        this.name = entitiy.getNameCanteiro();
+        this.nomeCanteiro = entitiy.getNomeCanteiro();
         this.itens = entitiy.getItens().stream().map(x->new ItemDTO(x)).collect(Collectors.toList());
     }
 
@@ -29,12 +30,12 @@ public class EstoqueDTO {
         this.id = id;
     }
 
-    public String getName() {
-        return this.name;
+    public String getNomeCanteiro() {
+        return this.nomeCanteiro;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String nomeCanteiro) {
+        this.nomeCanteiro = nomeCanteiro;
     }
 
     public List<ItemDTO> getItensDTO() {
