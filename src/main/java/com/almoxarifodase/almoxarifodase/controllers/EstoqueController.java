@@ -1,17 +1,19 @@
 package com.almoxarifodase.almoxarifodase.controllers;
 
 import com.almoxarifodase.almoxarifodase.model.DTO.EstoqueDTO;
+import com.almoxarifodase.almoxarifodase.model.entities.Estoque;
+import com.almoxarifodase.almoxarifodase.model.forms.EstoqueForm;
 import com.almoxarifodase.almoxarifodase.service.EstoqueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
 @RestController
-//@RequestMapping(value="/estoque")
 public class EstoqueController {
 
     @Autowired
@@ -24,8 +26,8 @@ public class EstoqueController {
     }
 
     @PostMapping(value = "/estoque")
-    public ResponseEntity<EstoqueDTO> insert(@RequestBody EstoqueDTO dto){
-        dto = service.insert(dto);
+    public ResponseEntity<EstoqueDTO> insert(@RequestBody @Valid EstoqueForm form){
+        EstoqueDTO dto = service.insert(form);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
                 .path("/{id}").buildAndExpand(dto.getId())
                 .toUri();

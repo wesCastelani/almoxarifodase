@@ -4,6 +4,7 @@ import com.almoxarifodase.almoxarifodase.model.DTO.EstoqueDTO;
 import com.almoxarifodase.almoxarifodase.model.DTO.ItemDTO;
 import com.almoxarifodase.almoxarifodase.model.entities.Estoque;
 import com.almoxarifodase.almoxarifodase.model.entities.Item;
+import com.almoxarifodase.almoxarifodase.model.forms.EstoqueForm;
 import com.almoxarifodase.almoxarifodase.repository.EstoqueRepository;
 import com.almoxarifodase.almoxarifodase.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,20 +26,28 @@ public class EstoqueService {
     @Transactional
     public List<EstoqueDTO> findAll(){
         List<Estoque> list = estoqueRepository.findAll();
-        return list.stream().map(x -> new EstoqueDTO(x)).collect(Collectors.toList());
+        return convertListToDTO(list);
     }
 
     @Transactional
-    public EstoqueDTO insert(EstoqueDTO dto){
-        Estoque estoque = new Estoque(null, dto.getName());
-        for(ItemDTO i : dto.getItensDTO()){
-            Item item = itemRepository.getOne(i.getId());
-            estoque.getItens().add(item);
-        }
+    public EstoqueDTO insert(EstoqueForm form){
+        Estoque estoque = convertToEstoque(form);
         estoque = estoqueRepository.save(estoque);
         return new EstoqueDTO(estoque);
     }
 
+    private Estoque convertToEstoque(EstoqueForm form) {
+        Estoque estoque = new Estoque();
+        estoque.setNomeCanteiro(form.getName());
+        return estoque;
+    }
 
+    private EstoqueDTO convertToDTO(Estoque estoque){
+        return new EstoqueDTO(estoque);
+    }
+
+    private static List<EstoqueDTO> convertListToDTO(List<Estoque> estoques) {
+        return estoques.stream().map(EstoqueDTO::new).collect(Collectors.toList());
+    }
 
 }
