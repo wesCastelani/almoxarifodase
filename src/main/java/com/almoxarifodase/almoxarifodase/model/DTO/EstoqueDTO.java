@@ -11,7 +11,6 @@ public class EstoqueDTO {
 
     private Long id;
     private String nomeCanteiro;
-
     private List<ItemDTO> itens = new ArrayList<>();
 
     public EstoqueDTO(){}

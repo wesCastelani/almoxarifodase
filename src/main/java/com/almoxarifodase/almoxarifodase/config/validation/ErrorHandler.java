@@ -9,6 +9,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,5 +34,20 @@ public class ErrorHandler {
         });
         return dto;
     }
+
+    @ResponseStatus(code = HttpStatus.METHOD_NOT_ALLOWED)
+    @ExceptionHandler(ResponseStatusException.class)
+    public List<ErrorFormDto> handleQuantidadeNaoDisponivel(ResponseStatusException exception) {
+
+        List<ErrorFormDto> dto = new ArrayList<>();
+
+        String errorMessage = exception.getReason();
+        ErrorFormDto error = new ErrorFormDto("Quantidade", errorMessage);
+
+        dto.add(error);
+
+        return dto;
+    }
+
 
 }
