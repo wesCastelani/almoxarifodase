@@ -34,7 +34,7 @@ public class ItemService {
     private Item convertToItem(ItemForm form){
         Item item = new Item();
         item.setName(form.getName());
-        item.setQtd(form.getQtd());
+        //item.setQtd(form.getQtd());
         return item;
     }
 

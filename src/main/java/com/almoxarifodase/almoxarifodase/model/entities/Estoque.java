@@ -17,8 +17,7 @@ public class Estoque {
     @Column(name="name_canteiro", nullable = false, unique = true)
     private String nomeCanteiro;
 
-    @ManyToMany
-    @JoinTable(name = "tb_item_estoque", joinColumns = @JoinColumn(name = "estoque_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
-    private Set<Item> itens = new HashSet<>();
+    @OneToMany
+    private Set<ItemEstoque> itensEmEstoque = new HashSet<>();
 
 }

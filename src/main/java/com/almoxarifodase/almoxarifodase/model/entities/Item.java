@@ -14,7 +14,5 @@ public class Item {
     private Long id;
     @Column(name="name", nullable = false, unique = true)
     private String name;
-    @Column(name="qtd")
-    private Double qtd;
 
 }
